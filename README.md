@@ -52,19 +52,24 @@ npm start
 
 ## Environment Variables
 
-For production deployment, create a `.env` file in the backend directory with the following variables:
+For production deployment on Render.com, create environment variables with the following values:
 
 ```
-PORT=5000
+PORT=10000 # Or any port Render assigns
 NODE_ENV=production
 MONGODB_URI=mongodb+srv://your_mongodb_connection_string
 IMAGEKIT_PUBLIC_KEY=your_public_key
 IMAGEKIT_PRIVATE_KEY=your_private_key
 IMAGEKIT_URL_ENDPOINT=https://ik.imagekit.io/your_endpoint
-FRONTEND_URL=https://your-frontend-domain.com
+FRONTEND_URL=https://digital-memories.vercel.app
 ```
 
-All variables except FRONTEND_URL are required in production mode. FRONTEND_URL is recommended for production to restrict CORS access.
+**Important:** For Render deployment with Vercel frontend, ensure that:
+1. `FRONTEND_URL` matches exactly with your Vercel deployment URL 
+2. Render.com's "Outbound Rules" in the web service settings allow access to your Vercel app
+3. Port is properly set (usually handled automatically by Render)
+
+All variables except FRONTEND_URL are required in production mode. FRONTEND_URL is required to correctly restrict CORS access.
 
 ## API Documentation
 
